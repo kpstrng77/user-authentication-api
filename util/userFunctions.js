@@ -31,6 +31,52 @@ function verifyUniqueUser(req, res) {
   });
 }
 
+function verifyUserExists(req, res) {
+  // Find an entry from the database that
+  // matches either the email or username
+  User.findOne({ email: req.payload.email }, (err, user) => {
+    // Check whether the username or email
+    // is already taken and error out if so
+    if (user) {
+      if (user.email === req.payload.email) {
+        // If everything checks out, send the payload through
+        // to the route handler
+        console.log(user.email);
+        res(req.payload);
+      }  
+    }else {
+      res(Boom.badRequest('User not found.'));
+    }
+  });
+}
+
+function verifyUniqueReset(req, res) {
+  // Find an entry from the database that
+  // matches either the email or username
+  User.findOne({ 
+    $or: [ 
+      { email: req.payload.email }, 
+      { username: req.payload.username }
+    ]
+  }, (err, reset) => {
+    // Check whether the username or email
+    // is already taken and error out if so
+    if (reset) {
+      if (reset.username === req.payload.username) {
+        res(Boom.badRequest('Username taken'));
+        return;
+      }
+      if (reset.email === req.payload.email) {
+        res(Boom.badRequest('Email taken'));
+        return;
+      }
+    }
+    // If everything checks out, send the payload through
+    // to the route handler
+    res(req.payload);
+  });
+}
+
 function verifyCredentials(req, res) {
   
   const password = req.payload.password;
@@ -60,5 +106,6 @@ function verifyCredentials(req, res) {
 
 module.exports = {
   verifyUniqueUser: verifyUniqueUser,
+  verifyUserExists: verifyUserExists,
   verifyCredentials: verifyCredentials
 }

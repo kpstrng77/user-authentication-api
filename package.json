@@ -15,7 +15,7 @@
   "author": "Auth0",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^0.8.7",
+    "bcrypt": "^4.0.0",
     "boom": "^3.2.2",
     "dotenv": "^2.0.0",
     "glob": "^7.1.1",
@@ -23,8 +23,11 @@
     "hapi-auth-jwt": "^4.0.0",
     "joi": "^8.4.2",
     "joi-objectid": "^2.0.0",
+    "jshint": "^2.11.0",
     "jsonwebtoken": "^5.7.0",
     "md5": "^2.2.1",
-    "mongoose": "^4.6.5"
+    "mongoose": "^4.6.5",
+    "node-gyp": "^6.1.0",
+    "nodemailer": "^6.4.3"
   }
 }
