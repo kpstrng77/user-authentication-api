@@ -11,7 +11,7 @@ const server = new Hapi.Server();
 
 // The connection object takes some
 // configuration, including the port
-server.connection({ port: 3001, routes: { cors: true } });
+server.connection({ port: process.env.PORT, routes: { cors: true } });
 
 // remote connection to database
 const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}`;
