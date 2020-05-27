@@ -13,7 +13,7 @@ var nodemailer = require('nodemailer');
 require('dotenv').config();
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'Mailgun',
   auth: {
 	user: `${process.env.MLAB_EMAIL}`,
 	pass: `${process.env.MLAB_EMAILPASSWORD}`
