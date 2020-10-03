@@ -15,7 +15,7 @@ server.connection({ port: process.env.PORT, routes: { cors: true } });
 
 // remote connection to database
 //const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}`;
-const dbUrl = `mongodb+srv://kpstrng77:7277niss@cluster-j15hnqth.7fkjn.mongodb.net/heroku_j15hnqth?retryWrites=true&w=majority`;
+const dbUrl = `mongodb+srv://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}?retryWrites=true&w=majority`;
 
 server.register(require('hapi-auth-jwt'), (err) => {
   
