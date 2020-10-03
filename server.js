@@ -14,8 +14,7 @@ const server = new Hapi.Server();
 server.connection({ port: process.env.PORT, routes: { cors: true } });
 
 // remote connection to database
-//const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}`;
-const dbUrl = ${process.env.CONNECTCTION_STRNG};
+const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}`;
 
 server.register(require('hapi-auth-jwt'), (err) => {
   
