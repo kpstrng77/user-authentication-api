@@ -15,7 +15,7 @@ server.connection({ port: process.env.PORT, routes: { cors: true } });
 
 // remote connection to database
 //const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}`;
-const dbUrl = `mongodb+srv://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@${process.env.MLAB_DOMAIN}/${process.env.MLAB_DB}?retryWrites=true&w=majority`;
+const dbUrl = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASSWORD}@cluster-j15hnqth-shard-00-00.7fkjn.mongodb.net:27017,cluster-j15hnqth-shard-00-01.7fkjn.mongodb.net:27017,cluster-j15hnqth-shard-00-02.7fkjn.mongodb.net:27017/${process.env.MLAB_DB}?ssl=true&replicaSet=atlas-67ery1-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
 server.register(require('hapi-auth-jwt'), (err) => {
   
