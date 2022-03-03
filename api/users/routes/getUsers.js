@@ -21,6 +21,7 @@ module.exports = {
             throw Boom.notFound('No users found!');
           }
           res(users);
+        
         })
     }    
   }
