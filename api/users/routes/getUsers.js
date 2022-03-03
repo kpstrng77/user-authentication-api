@@ -7,7 +7,7 @@ module.exports = {
   method: 'GET',
   path: '/api/users',
   config: {
-    auth: false,
+    auth: true,
     handler: (req, res) => {
       User
         .find()
